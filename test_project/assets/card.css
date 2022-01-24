@@ -1,0 +1,11 @@
+.card {
+  background-color: brown;
+  width: 320px;
+  height: 480px;
+}
+.title {
+  color: #fff;
+}
+.desc {
+  color: aqua;
+}
