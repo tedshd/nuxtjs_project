@@ -1,3 +1,6 @@
+:root {
+  --bg: #ff8800;
+}
 body {
-  background: blueviolet;
+  background: var(--bg);
 }

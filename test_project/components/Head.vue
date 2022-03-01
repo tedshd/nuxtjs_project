@@ -27,12 +27,12 @@ export default {
   },
   beforeMount () {
     console.log('tag', this)
-    this.go(this)
+    this.go()
     console.log('isMobile', isMobile)
   },
   methods: {
-    go: (_this) => {
-      console.log('go', _this.$i18n.loadedLanguages[0])
+    go () {
+      console.log('go', this.$i18n.loadedLanguages[0])
     }
   }
 }

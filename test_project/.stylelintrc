@@ -1,0 +1,11 @@
+{
+  customSyntax: "postcss-html",
+  "rules": {
+    "color-function-notation": ["legacy", { "disableFix": true }],
+    "no-descending-specificity": false
+  },
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-recommended-vue"
+  ]
+}

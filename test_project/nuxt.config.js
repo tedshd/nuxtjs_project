@@ -1,26 +1,37 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
-  head: {
-    title: 'pratice',
-    // htmlAttrs: {
-    //   lang: 'en'
-    // },
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
-    ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+  head() {
+    const i18nHead = this.$nuxtI18nHead({ addSeoAttributes: true })
+    return {
+      title: 'pratice',
+      htmlAttrs: {
+        // lang: 'en'
+        ...i18nHead.htmlAttrs
+      },
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { hid: 'description', name: 'description', content: '' },
+        { name: 'format-detection', content: 'telephone=no' }
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        {
+          rel: 'stylesheet',
+          type: 'text/css',
+          href: 'https://cdnjs.cloudflare.com/ajax/libs/pure/2.0.6/pure-min.css'
+        },
+        ...i18nHead.link
+      ]
+    }
   },
-  head () {
-    return this.$nuxtI18nHead({ addSeoAttributes: true })
-  },
+  // head () {
+  //   return this.$nuxtI18nHead({ addSeoAttributes: true })
+  // },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@/assets/common.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -80,5 +91,25 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    // extractCSS: true,
+    // optimizeCSS: true,
+    postcss: {
+      // Add plugin names as key and arguments as value
+      // Install them before as dependencies with npm or yarn
+      plugins: {
+        // Disable a plugin by passing false as value
+        // 'postcss-url': false,
+        // 'postcss-nested': {},
+        // 'postcss-responsive-type': {},
+        // 'postcss-hexrgba': {}
+        'postcss-css-variables': {}
+      },
+      preset: {
+        // Change the postcss-preset-env settings
+        autoprefixer: {
+          grid: true
+        }
+      }
+    }
   }
 }

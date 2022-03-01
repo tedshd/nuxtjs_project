@@ -8,6 +8,7 @@
 <style>
   body {
     background: red;
+    color: var(--bg);
   }
 </style>
 <script>
